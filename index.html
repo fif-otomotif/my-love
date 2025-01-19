@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Memories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden; /* Hindari scroll horizontal */
+        }
+        header {
+            background-color: #ff66b2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        .gallery img {
+            margin: 10px;
+            border-radius: 10px;
+            width: 300px;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .caption {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+        .song-title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Gelombang Musik */
+        .wave-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            height: 100px;
+        }
+
+        .wave {
+            width: 10px;
+            height: 50px;
+            margin: 0 5px;
+            background-color: #ff66b2;
+            animation: wave 1.5s infinite;
+            border-radius: 5px;
+        }
+
+        .wave:nth-child(1) { animation-delay: 0s; }
+        .wave:nth-child(2) { animation-delay: 0.2s; }
+        .wave:nth-child(3) { animation-delay: 0.4s; }
+        .wave:nth-child(4) { animation-delay: 0.6s; }
+        .wave:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes wave {
+            0%, 100% { height: 20px; }
+            50% { height: 50px; }
+        }
+
+        /* Efek bintang jatuh */
+        .falling-star {
+            position: fixed;
+            top: -10px;
+            pointer-events: none;
+            color: #FFD700;
+            font-size: 16px;
+            animation: falling-star-animation 3s linear infinite;
+        }
+
+        @keyframes falling-star-animation {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            80% {
+                transform: translate(200px, 600px) rotate(45deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(250px, 700px) rotate(45deg);
+                opacity: 0; /* Hilang secara perlahan */
+            }
+        }
+
+        /* Efek salju */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            pointer-events: none;
+            color: #FFF;
+            font-size: 24px;
+            animation: snowfall 10s linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Styling untuk elemen audio agar berada di tengah */
+        #background-music {
+            display: block;
+            margin: 20px auto; /* Mengatur margin agar berada di tengah */
+            width: 80%; /* Atur lebar audio player */
+            max-width: 500px; /* Ukuran maksimal */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>💝My Love💝</h1>
+    </header>
+    
+    <!-- Nama Lagu -->
+    <div class="song-title">Yung kai-Blue</div>
+
+    <!-- Audio Background -->
+    <audio id="background-music" autoplay loop controls>
+        <source src="AUD-20250119-WA0014.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Gelombang Musik -->
+    <div class="wave-container" id="wave-container">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- Galeri Foto -->
+    <div class="gallery">
+        <div>
+            <img src="IMG-20241223-WA0056.jpg" alt="Photo 1">
+            <div class="caption">My favorite photo 😝💐</div>
+        </div>
+        <div>
+            <img src="IMG-20241223-WA0055.jpg" alt="Photo 2">
+            <div class="caption">unforgettable memories 🫶🤍💐</div>
+        </div>
+    </div>
+
+    <script>
+        // Gelombang animasi sesuai musik
+        const audio = document.getElementById('background-music');
+        const waves = document.querySelectorAll('.wave');
+
+        // Jika lagu diputar
+        audio.addEventListener('play', () => {
+            waves.forEach(wave => wave.style.animationPlayState = 'running');
+        });
+
+        // Jika lagu dijeda
+        audio.addEventListener('pause', () => {
+            waves.forEach(wave => wave.style.animationPlayState = 'paused');
+        });
+
+        // Membuat efek bintang jatuh
+        function createFallingStars() {
+            const starCount = 20; // Jumlah bintang jatuh
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('falling-star');
+                star.style.left = `${Math.random() * 100}vw`; // Posisi horizontal acak
+                star.style.animationDuration = `${Math.random() * 2 + 3}s`; // Durasi animasi acak
+                star.textContent = '★'; // Simbol bintang
+                document.body.appendChild(star);
+            }
+        }
+
+        // Membuat efek salju
+        function createSnowflakes() {
+            const snowflakeCount = 50; // Jumlah salju
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = `${Math.random() * 100}vw`; // Posisi horizontal acak
+                snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Durasi animasi acak
+                snowflake.textContent = '❄'; // Simbol salju
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        // Memulai efek bintang jatuh dan salju
+        createFallingStars();
+        createSnowflakes();
+    </script>
+</body>
+</html>
