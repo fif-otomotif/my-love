@@ -128,7 +128,7 @@
     }
     .snowflake {
         color: #FFF;
-        font-size: 24px;
+        font-size: 18px;
         animation: snowfall 10s linear infinite;
     }
     @keyframes snowfall {
@@ -162,30 +162,12 @@
         <source src="https://files.catbox.moe/uryz0d.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-
-    <!-- Gelombang Musik -->
-<div class="wave-container" id="wave-container">
-  <span class="wave-letter">C</span>
-  <span class="wave-letter">h</span>
-  <span class="wave-letter">e</span>
-  <span class="wave-letter">l</span>
-  <span class="wave-letter">s</span>
-  <span class="wave-letter">e</span>
-  <span class="wave-letter">a</span>
-  <span>&nbsp;</span>
-  <span class="wave-letter">Q</span>
-  <span class="wave-letter">u</span>
-  <span class="wave-letter">e</span>
-  <span class="wave-letter">e</span>
-  <span class="wave-letter">n</span>
-  <span>&nbsp;</span>
-  <span class="wave-letter">C</span>
-  <span class="wave-letter">a</span>
-  <span class="wave-letter">n</span>
-  <span class="wave-letter">t</span>
-  <span class="wave-letter">i</span>
-  <span class="wave-letter">k</span>
-  <span class="wave-letter">a</span>
+    
+    <div class="ucapan" style="text-align: center; font-size: 18px; margin: 30px auto; max-width: 600px; line-height: 1.8; padding: 20px; background-color: #fce4ec; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <p><i>Untuk bidadari kecil yang menghiasi dunia ini dengan senyuman manisnya,</i></p>
+    <p><b>Terima kasih</b> telah hadir dan membawa warna dalam setiap detik hidupku. Tatapanmu adalah semesta, dan tawamu adalah alunan lagu yang tak pernah jemu kudengar.</p>
+    <p>Semoga setiap langkahmu diberkahi cinta, setiap harimu dipenuhi cahaya, dan setiap impianmu kelak menjadi nyata.</p>
+    <p><i>Aku akan selalu ada, menyayangimu dalam diam, mendukungmu dalam doa, dan menjaga kenangan ini di sudut hati paling hangat.</i></p>
 </div>
 
     <!-- Galeri Foto -->
@@ -212,6 +194,30 @@
           <img src="https://files.catbox.moe/1v0nrw.jpg" alt="puteli kecil">
         </div>
     </div>
+    
+    <div class="wave-container" id="wave-container">
+  <span class="wave-letter">C</span>
+  <span class="wave-letter">h</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">l</span>
+  <span class="wave-letter">s</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">a</span>
+  <span>&nbsp;</span>
+  <span class="wave-letter">Q</span>
+  <span class="wave-letter">u</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">n</span>
+  <span>&nbsp;</span>
+  <span class="wave-letter">C</span>
+  <span class="wave-letter">a</span>
+  <span class="wave-letter">n</span>
+  <span class="wave-letter">t</span>
+  <span class="wave-letter">i</span>
+  <span class="wave-letter">k</span>
+  <span class="wave-letter">a</span>
+</div>
 
     <script>
         // Gelombang animasi sesuai musik
@@ -249,7 +255,7 @@
                 snowflake.classList.add('snowflake');
                 snowflake.style.left = `${Math.random() * 100}vw`; // Posisi horizontal acak
                 snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Durasi animasi acak
-                snowflake.textContent = '❄'; // Simbol salju
+                snowflake.textContent = '🌸'; // Simbol salju
                 document.body.appendChild(snowflake);
             }
         }
