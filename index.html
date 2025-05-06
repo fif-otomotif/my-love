@@ -3,164 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" />
     <title>Romantic Memories</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            overflow-x: hidden; /* Hindari scroll horizontal */
-        }
-        header {
-            background-color: #ff66b2;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-        }
-        .gallery img {
-            margin: 10px;
-            border-radius: 10px;
-            width: 300px;
-            height: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .caption {
-            text-align: center;
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-        }
-        .song-title {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 24px;
-            font-weight: bold;
-        }
+    body {
+        font-family: 'Noto Serif', serif;
+        background: linear-gradient(to bottom, #fff0f5, #f4f4f4);
+        color: #444;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    header {
+        background: linear-gradient(45deg, #ff66b2, #ff99cc);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 48px;
+        margin-bottom: 0;
+    }
+    .titlea {
+        font-style: italic;
+        color: #fce4ec;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+    .song-title {
+        text-align: center;
+        margin: 30px 0 10px;
+        font-size: 26px;
+        font-weight: 700;
+        color: #b30059;
+    }
+    #background-music {
+        display: block;
+        margin: 10px auto 30px;
+        width: 80%;
+        max-width: 500px;
+    }
+    .wave-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        height: 100px;
+    }
+    .wave-letter {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff66b2;
+    margin: 0 2px;
+    animation: wave-bounce 1.5s infinite ease-in-out;
+}
 
-        /* Gelombang Musik */
-        .wave-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px auto;
-            height: 100px;
-        }
+.wave-letter:nth-child(1) { animation-delay: 0s; }
+.wave-letter:nth-child(2) { animation-delay: 0.1s; }
+.wave-letter:nth-child(3) { animation-delay: 0.2s; }
+.wave-letter:nth-child(4) { animation-delay: 0.3s; }
+.wave-letter:nth-child(5) { animation-delay: 0.4s; }
+.wave-letter:nth-child(6) { animation-delay: 0.5s; }
+.wave-letter:nth-child(7) { animation-delay: 0.6s; }
+.wave-letter:nth-child(9) { animation-delay: 0.7s; }
+.wave-letter:nth-child(10) { animation-delay: 0.8s; }
+.wave-letter:nth-child(11) { animation-delay: 0.9s; }
+.wave-letter:nth-child(12) { animation-delay: 1s; }
+.wave-letter:nth-child(13) { animation-delay: 1.1s; }
+.wave-letter:nth-child(15) { animation-delay: 1.2s; }
+.wave-letter:nth-child(16) { animation-delay: 1.3s; }
+.wave-letter:nth-child(17) { animation-delay: 1.4s; }
+.wave-letter:nth-child(18) { animation-delay: 1.5s; }
+.wave-letter:nth-child(19) { animation-delay: 1.6s; }
+.wave-letter:nth-child(20) { animation-delay: 1.7s; }
+.wave-letter:nth-child(21) { animation-delay: 1.8s; }
 
-        .wave {
-            width: 10px;
-            height: 50px;
-            margin: 0 5px;
-            background-color: #ff66b2;
-            animation: wave 1.5s infinite;
-            border-radius: 5px;
+@keyframes wave-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+    .gallery img {
+        margin: 15px;
+        border-radius: 15px;
+        width: 280px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .falling-star,
+    .snowflake {
+        pointer-events: none;
+        position: fixed;
+        top: -10px;
+    }
+    .falling-star {
+        color: #FFD700;
+        font-size: 16px;
+        animation: falling-star-animation 3s linear infinite;
+    }
+    @keyframes falling-star-animation {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 1;
         }
-
-        .wave:nth-child(1) { animation-delay: 0s; }
-        .wave:nth-child(2) { animation-delay: 0.2s; }
-        .wave:nth-child(3) { animation-delay: 0.4s; }
-        .wave:nth-child(4) { animation-delay: 0.6s; }
-        .wave:nth-child(5) { animation-delay: 0.8s; }
-
-        @keyframes wave {
-            0%, 100% { height: 20px; }
-            50% { height: 50px; }
+        100% {
+            transform: translate(250px, 700px) rotate(45deg);
+            opacity: 0;
         }
-
-        /* Efek bintang jatuh */
-        .falling-star {
-            position: fixed;
-            top: -10px;
-            pointer-events: none;
-            color: #FFD700;
-            font-size: 16px;
-            animation: falling-star-animation 3s linear infinite;
+    }
+    .snowflake {
+        color: #FFF;
+        font-size: 24px;
+        animation: snowfall 10s linear infinite;
+    }
+    @keyframes snowfall {
+        0% {
+            transform: translateY(-10px) rotate(0deg);
         }
-
-        @keyframes falling-star-animation {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 1;
-            }
-            80% {
-                transform: translate(200px, 600px) rotate(45deg);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translate(250px, 700px) rotate(45deg);
-                opacity: 0; /* Hilang secara perlahan */
-            }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
         }
-
-        /* Efek salju */
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            pointer-events: none;
-            color: #FFF;
-            font-size: 24px;
-            animation: snowfall 10s linear infinite;
-        }
-
-        @keyframes snowfall {
-            0% {
-                transform: translateY(-10px) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-
-        /* Styling untuk elemen audio agar berada di tengah */
-        #background-music {
-            display: block;
-            margin: 20px auto; /* Mengatur margin agar berada di tengah */
-            width: 80%; /* Atur lebar audio player */
-            max-width: 500px; /* Ukuran maksimal */
-        }
-    </style>
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f8bbd0;
+        font-size: 14px;
+        color: #555;
+    }
+</style>
 </head>
 <body>
     <header>
         <h1>💝My Love💝</h1>
+        <p class="titlea"><i>little princess gallery</i></p>
     </header>
     
     <!-- Nama Lagu -->
-    <div class="song-title">Yung kai-Blue</div>
+    <div class="song-title"><b>Yung kai</b> - <i>Blue</i></div>
 
     <!-- Audio Background -->
     <audio id="background-music" autoplay loop controls>
-        <source src="AUD-20250119-WA0014.mp3" type="audio/mp3">
+        <source src="https://files.catbox.moe/uryz0d.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <!-- Gelombang Musik -->
-    <div class="wave-container" id="wave-container">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
+<div class="wave-container" id="wave-container">
+  <span class="wave-letter">C</span>
+  <span class="wave-letter">h</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">l</span>
+  <span class="wave-letter">s</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">a</span>
+  <span>&nbsp;</span>
+  <span class="wave-letter">Q</span>
+  <span class="wave-letter">u</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">e</span>
+  <span class="wave-letter">n</span>
+  <span>&nbsp;</span>
+  <span class="wave-letter">C</span>
+  <span class="wave-letter">a</span>
+  <span class="wave-letter">n</span>
+  <span class="wave-letter">t</span>
+  <span class="wave-letter">i</span>
+  <span class="wave-letter">k</span>
+  <span class="wave-letter">a</span>
+</div>
 
     <!-- Galeri Foto -->
     <div class="gallery">
         <div>
-            <img src="IMG-20241223-WA0056.jpg" alt="Photo 1">
-            <div class="caption">My favorite photo 😝💐</div>
+            <img src="https://files.catbox.moe/7m5ioz.jpg" alt="puteli kecil">
         </div>
         <div>
-            <img src="IMG-20241223-WA0055.jpg" alt="Photo 2">
-            <div class="caption">unforgettable memories 🫶🤍💐</div>
+            <img src="https://files.catbox.moe/riroz5.jpg" alt="puteli kecil">
+        </div>
+        <div>
+          <img src="https://files.catbox.moe/zcu318.jpg" alt="puteli kecil">
+        </div>
+        <div>
+          <img src="https://files.catbox.moe/zuq4en.jpg" alt="puteli kecil">
+        </div>
+        <div>
+          <img src="https://files.catbox.moe/nn42wt.jpg" alt="puteli kecil">
+        </div>
+        <div>
+          <img src="https://files.catbox.moe/6e0lxa.jpg" alt="puteli kecil">
+        </div>
+        <div>
+          <img src="https://files.catbox.moe/1v0nrw.jpg" alt="puteli kecil">
         </div>
     </div>
 
