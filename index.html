@@ -178,7 +178,11 @@
         Your browser does not support the audio element.
     </audio>
     
-    <div class="ucapan" style="text-align: center; font-size: 18px; margin: 30px auto; max-width: 600px; line-height: 1.8; padding: 20px; background-color: #fce4ec; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+<div style="text-align:center; margin-top: 30px;">
+    <button id="toggleButton" onclick="toggleUcapan()" style="padding: 10px 20px; background-color: #ff66b2; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 16px;">open</button>
+</div>
+    
+<div id="ucapan" class="ucapan" style="text-align: center; font-size: 18px; margin: 30px auto; max-width: 600px; line-height: 1.8; padding: 20px; background-color: #fce4ec; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); max-height: 0; overflow: hidden; transition: max-height 1s ease, padding 0.5s ease;">
     <p><i>Untuk bidadari kecil yang menghiasi dunia ini dengan senyuman manisnya,</i></p>
     <p><b>Terima kasih</b> telah hadir dan membawa warna dalam setiap detik hidupku. Tatapanmu adalah semesta, dan tawamu adalah alunan lagu yang tak pernah jemu kudengar.</p>
     <p>Semoga setiap langkahmu diberkahi cinta, setiap harimu dipenuhi cahaya, dan setiap impianmu kelak menjadi nyata.</p>
@@ -207,10 +211,10 @@
     <div><img src="https://files.catbox.moe/3boat5.jpg" alt="puteli kecil"></div>
     <div><img src="https://files.catbox.moe/a8n9ts.jpg" alt="puteli kecil"></div>
     <div><img src="https://files.catbox.moe/scj24z.jpg" alt="puteli kecil"></div>
+     <div><img src="https://files.catbox.moe/4a3fgv.jpg" alt="puteli kecil"></div>
     <div><img src="https://files.catbox.moe/s7bndm.jpg" alt="puteli kecil"></div>
-    <div><img src="https://files.catbox.moe/4a3fgv.jpg" alt="puteli kecil"></div>
-    <div><img src="https://files.catbox.moe/scj24z.jpg" alt="puteli kecil"></div>
 </div>
+
     
     <div class="wave-container" id="wave-container">
   <span class="wave-letter">C</span>
@@ -293,6 +297,32 @@
         img.classList.add('show');
       }
     });
+  });
+</script>
+
+<script>
+    let isVisible = false;
+    function toggleUcapan() {
+        const ucapan = document.getElementById("ucapan");
+        const button = document.getElementById("toggleButton");
+        
+        if (!isVisible) {
+            ucapan.style.maxHeight = ucapan.scrollHeight + "px";
+            ucapan.style.padding = "20px";
+            button.textContent = "closed";
+            isVisible = true;
+        } else {
+            ucapan.style.maxHeight = "0";
+            ucapan.style.padding = "0 20px";
+            button.textContent = "open";
+            isVisible = false;
+        }
+    }
+</script>
+
+<script>
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
   });
 </script>
 </body>
