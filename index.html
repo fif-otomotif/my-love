@@ -6,6 +6,9 @@
      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" />
     <title>Romantic Memories</title>
     <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
         font-family: 'Noto Serif', serif;
         background: linear-gradient(to bottom, #fff0f5, #f4f4f4);
@@ -93,6 +96,9 @@
         flex-wrap: wrap;
         justify-content: center;
         padding: 20px;
+        background: url('https://cdn.xtermai.xyz/i36/3AI') center/cover fixed no-repeat;
+        padding: 60px 20px;
+        border-radius: 20px;
     }
     .gallery img {
         margin: 15px;
@@ -100,11 +106,20 @@
         width: 280px;
         transition: transform 0.3s, box-shadow 0.3s;
         box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
     }
     .gallery img:hover {
         transform: scale(1.05);
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        opacity: 1;
+        transform: translateY(0);
     }
+    .gallery img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
     .falling-star,
     .snowflake {
         pointer-events: none;
@@ -171,29 +186,31 @@
 </div>
 
     <!-- Galeri Foto -->
-    <div class="gallery">
-        <div>
-            <img src="https://files.catbox.moe/7m5ioz.jpg" alt="puteli kecil">
-        </div>
-        <div>
-            <img src="https://files.catbox.moe/riroz5.jpg" alt="puteli kecil">
-        </div>
-        <div>
-          <img src="https://files.catbox.moe/zcu318.jpg" alt="puteli kecil">
-        </div>
-        <div>
-          <img src="https://files.catbox.moe/zuq4en.jpg" alt="puteli kecil">
-        </div>
-        <div>
-          <img src="https://files.catbox.moe/nn42wt.jpg" alt="puteli kecil">
-        </div>
-        <div>
-          <img src="https://files.catbox.moe/6e0lxa.jpg" alt="puteli kecil">
-        </div>
-        <div>
-          <img src="https://files.catbox.moe/1v0nrw.jpg" alt="puteli kecil">
-        </div>
-    </div>
+<div class="gallery">
+    <div><img src="https://files.catbox.moe/7m5ioz.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/riroz5.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/zcu318.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/zuq4en.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/nn42wt.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/6e0lxa.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/1v0nrw.jpg" alt="puteli kecil"></div>
+    <div><img src="https://files.catbox.moe/5gnyww.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/y8kjpt.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/lxv775.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/appds3.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/1a1j7d.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/64runo.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/nbfhzt.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/o4zkhf.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/tmwwdu.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/gyc0pm.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/3boat5.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/a8n9ts.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/scj24z.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/s7bndm.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/4a3fgv.jpg" alt="puteli kecil tambahan"></div>
+    <div><img src="https://files.catbox.moe/scj24z.jpg" alt="puteli kecil tambahan"></div>
+</div>
     
     <div class="wave-container" id="wave-container">
   <span class="wave-letter">C</span>
@@ -219,6 +236,8 @@
   <span class="wave-letter">a</span>
 </div>
 
+<a href="#top" style="position:fixed;bottom:20px;right:20px;background:#ff66b2;color:white;padding:10px 15px;border-radius:50%;">⬆️</a>
+
     <script>
         // Gelombang animasi sesuai musik
         const audio = document.getElementById('background-music');
@@ -236,7 +255,7 @@
 
         // Membuat efek bintang jatuh
         function createFallingStars() {
-            const starCount = 20; // Jumlah bintang jatuh
+            const starCount = 30; // Jumlah bintang jatuh
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.classList.add('falling-star');
@@ -264,5 +283,17 @@
         createFallingStars();
         createSnowflakes();
     </script>
+    
+    <script>
+  const imgs = document.querySelectorAll('.gallery img');
+  window.addEventListener('scroll', () => {
+    imgs.forEach(img => {
+      const rect = img.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        img.classList.add('show');
+      }
+    });
+  });
+</script>
 </body>
 </html>
